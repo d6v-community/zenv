@@ -1,0 +1,14 @@
+{
+  "name": "@d6v/zenv",
+  "version": "0.0.1",
+  "description": "Zod Validated Environment Variables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dominic Vonk <dominic@vonk.io>",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
+}
