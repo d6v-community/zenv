@@ -1,14 +1,34 @@
 {
   "name": "@d6v/zenv",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d6v-community/zenv.git"
+  },
+  "publisher": "d6v",
+  "private": false,
   "version": "0.0.1",
   "description": "Zod Validated Environment Variables",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.dts.json"
   },
   "author": "Dominic Vonk <dominic@vonk.io>",
   "license": "MIT",
   "dependencies": {
     "zod": "^3.21.4"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/dts/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/dts/*.d.ts"
+      ]
+    }
   }
 }
