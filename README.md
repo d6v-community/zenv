@@ -33,6 +33,8 @@ const schema = z.object({
 const validatedEnv = zenv(schema);
 ```
 
+# 
+
 In this example, we define a schema for a configuration file that has three
 properties: `port`, `host`, and `debug`. The `port` property is required and
 must be a number between 0 and 65535. The `host` and `debug` properties are
@@ -42,10 +44,22 @@ optional and can be either a string or a boolean, respectively.
 
 ZENV provides the following API:
 
-`zenv(schema: z.ZodSchema, env: EnvVariables): z.infer<z.ZodSchema>` Parses and
-validates an env variables object using the given Zod schema. Returns an object
-with the parsed values if the object is valid, or throws an error with a
+`zenv(schema: z.ZodSchema, options: ZenvOptions): z.infer<z.ZodSchema>` Parses
+and validates an env variables object using the given Zod schema. Returns an
+object with the parsed values if the object is valid, or throws an error with a
 detailed error message if the object is invalid.
+
+### Options
+
+The `zenv` function accepts an optional `options` object as its second argument.
+The following options are available:
+
+```ts
+interface ZenvOptions {
+  env?: process.env;
+  parser?: (value: any) => any;
+}
+```
 
 ## License
 
