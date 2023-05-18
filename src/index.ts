@@ -1,10 +1,10 @@
-import { config } from "dotenv";
+import { config, DotenvConfigOptions } from "dotenv";
 import { z } from "zod";
 interface ZenvOptions {
     env?: Record<string, string>;
     parser?: (value: any) => any;
     useDotenv?: boolean;
-    dotenvConfig?: Parameters<typeof config>[0];
+    dotenvConfig?: DotenvConfigOptions;
 }
 
 function parse (value: any) {

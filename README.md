@@ -58,6 +58,8 @@ The following options are available:
 interface ZenvOptions {
   env?: process.env;
   parser?: (value: any) => any;
+  useDotenv?: boolean;
+  dotenvConfig?: DotenvConfigOptions;
 }
 ```
 
