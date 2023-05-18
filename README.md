@@ -1,8 +1,8 @@
 # ZENV
 
-ZENV is a TypeScript library for validating and parsing configuration files. It
-is based on the popular Zod library, which provides a simple and intuitive API
-for defining and validating data schemas.
+ZENV is a TypeScript library for validating and parsing environment variables.
+It is based on the popular Zod library, which provides a simple and intuitive
+API for defining and validating data schemas.
 
 ## Installation
 
