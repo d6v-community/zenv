@@ -1,8 +1,10 @@
+import { config } from "dotenv";
 import { z } from "zod";
-
 interface ZenvOptions {
     env?: Record<string, string>;
     parser?: (value: any) => any;
+    useDotenv?: boolean;
+    dotenvConfig?: Parameters<typeof config>[0];
 }
 
 function parse (value: any) {
@@ -16,11 +18,12 @@ function parse (value: any) {
 
 export function zenv<T extends z.Schema> (schema: T, options: ZenvOptions = {}) {
     try {
+        if (options.useDotenv) {
+            config(options.dotenvConfig)
+        }
         let env = options?.env || process.env;
-
         const parser = options?.parser || parse;
         env = Object.fromEntries(Object.entries(env).map(([key, value]) => [key, parser(value)]));
-
         const parsed = schema.parse(env);
         return parsed as z.infer<T>;
     } catch (error) {
